@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willem Paton - Professional CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern CSS Reset and Variables */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 100% 100%;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+            background: var(--light);
+        }
+        
+        /* Section Styles */
+        section {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Objective Section */
+        .objective p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        
+        /* Experience Section */
+        .experience ul {
+            list-style: none;
+        }
+        
+        .experience li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .experience li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .experience strong {
+            color: var(--dark);
+        }
+        
+        /* Education Section */
+        .education p {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .education p::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Communication Section */
+        .communication p {
+            background: var(--light);
+            padding: 1rem;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Contact Section */
+        .contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact i {
+            width: 30px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .contact a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Extra Info Section */
+        .extra-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .extra-info div {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .extra-info p {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .download-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(44, 62, 80, 0.3);
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .extra-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        section:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        section:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        section:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        
+        section:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+        
+        section:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Willem Paton</h1>
+            <p>Software Developer (Intern) | Bilingual: English, Afrikaans</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#objective"><i class="fas fa-user"></i> Objective</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#communication"><i class="fas fa-comments"></i> Communication</a></li>
+                <li><a href="#contact"><i class="fas fa-address-card"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <section id="objective" class="objective">
+            <h2><i class="fas fa-target"></i> Objective</h2>
+            <p>My objective is to provide value as best I can so I can excel in my knowledge and experience. I hope to be of good use.</p>
+        </section>
+        
+        <section id="experience" class="experience">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <p><strong>Jan – Aug 2025 | Tubecon Africa</strong></p>
+            <p>Intern Software Developer</p>
+            <ul>
+                <li>Gained experience with Laravel, Lua, and Java.</li>
+                <li>Assisted coworkers with IT problems on-site.</li>
+                <li>Completed software projects that provided value to the company.</li>
+                <li>Supported employees with technical issues (drivers, network, power).</li>
+            </ul>
+        </section>
+        
+        <section id="education" class="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <p><strong>Afrikaans Hoër Seunskool</strong> – Qualified for Bachelor’s degree (Average: 63%)</p>
+            <p><strong>Belgium Campus</strong> – Currently in 3rd year, preparing for internship year.</p>
+            <p>Worked full-time during studies, demonstrating ability to perform under pressure.</p>
+        </section>
+        
+        <section id="communication" class="communication">
+            <h2><i class="fas fa-comments"></i> Communication</h2>
+            <p>Experienced in team collaboration, idea-sharing, and technical support (IP setups, troubleshooting PCs).</p>
+        </section>
+        
+        <section id="contact" class="contact">
+            <h2><i class="fas fa-address-card"></i> Contact</h2>
+            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> 071 868 1628</p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:willempatonps4@gmail.com">willempatonps4@gmail.com</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 41 Villa Street, Sunnyside, Clydesdale, Pretoria</p>
+        </section>
+        
+        <section class="extra-info">
+            <div>
+                <h2><i class="fas fa-info-circle"></i> Extra Info</h2>
+                <p><strong>Driver's License:</strong> Yes</p>
+                <p><strong>Car:</strong> Suzuki Swift</p>
+            </div>
+            <div>
+                <h2><i class="fas fa-download"></i> Download CV</h2>
+                <a href="CV.pdf" download class="download-btn"><i class="fas fa-file-pdf"></i> Download PDF Version</a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2025 Willem Paton | <a href="mailto:willempatonps4@gmail.com">willempatonps4@gmail.com</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add subtle animation to sections when they come into view
+        const sections = document.querySelectorAll('section');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
