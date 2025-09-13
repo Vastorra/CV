@@ -1,12 +1,13 @@
-:root {
+/* Modern CSS Reset and Variables */
+        :root {
             --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #777;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --secondary: #8a2be2; /* Violet instead of blue */
+            --accent: #9370db; /* Light violet */
+            --dark-bg: #121212;
+            --dark-section: #1e1e1e;
+            --text: #e0e0e0;
+            --text-light: #a0a0a0;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
             --transition: all 0.3s ease;
         }
         
@@ -20,7 +21,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--dark-bg);
             min-height: 100vh;
         }
         
@@ -30,9 +31,9 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header Styles - Keeping the blue gradient */
         header {
-            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(120deg, var(--primary) 0%, #9034db 100%);
             color: white;
             padding: 3rem 0;
             text-align: center;
@@ -62,57 +63,95 @@
             opacity: 0.9;
         }
         
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* Dropdown Navigation */
+        .dropdown {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
         }
         
-        nav ul {
+        .dropdown-btn {
+            background: var(--dark-section);
+            color: var(--text);
+            border: 1px solid var(--secondary);
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
             display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        
-        nav ul li {
-            margin: 0;
-        }
-        
-        nav ul li a {
-            display: block;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            color: var(--dark);
+            align-items: center;
+            gap: 10px;
             font-weight: 600;
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
         
-        nav ul li a:hover {
+        .dropdown-btn:hover {
+            background: rgba(138, 43, 226, 0.2);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-section);
+            min-width: 220px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--secondary);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .dropdown-content a {
+            color: var(--text);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            border-bottom: 1px solid #2c2c2c;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background: rgba(138, 43, 226, 0.2);
             color: var(--secondary);
-            background: var(--light);
+        }
+        
+        .dropdown-content a i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
         
         /* Section Styles */
         section {
-            background: white;
+            background: var(--dark-section);
             margin: 2rem 0;
             border-radius: 10px;
             box-shadow: var(--shadow);
             padding: 2rem;
             transition: var(--transition);
+            border: 1px solid #2c2c2c;
         }
         
         section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
         }
         
         h2 {
-            color: var(--primary);
+            color: var(--text);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--secondary);
@@ -141,6 +180,7 @@
             margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
+            color: var(--text-light);
         }
         
         .experience li::before {
@@ -151,7 +191,7 @@
         }
         
         .experience strong {
-            color: var(--dark);
+            color: var(--text);
         }
         
         /* Education Section */
@@ -159,6 +199,7 @@
             margin-bottom: 1rem;
             padding-left: 1.5rem;
             position: relative;
+            color: var(--text-light);
         }
         
         .education p::before {
@@ -172,10 +213,11 @@
         
         /* Communication Section */
         .communication p {
-            background: var(--light);
+            background: rgba(138, 43, 226, 0.1);
             padding: 1rem;
             border-left: 4px solid var(--secondary);
             border-radius: 0 4px 4px 0;
+            color: var(--text);
         }
         
         /* Contact Section */
@@ -183,6 +225,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 1rem;
+            color: var(--text);
         }
         
         .contact i {
@@ -192,13 +235,13 @@
         }
         
         .contact a {
-            color: var(--secondary);
+            color: var(--accent);
             text-decoration: none;
             transition: var(--transition);
         }
         
         .contact a:hover {
-            color: var(--primary);
+            color: var(--secondary);
             text-decoration: underline;
         }
         
@@ -216,26 +259,40 @@
         
         .extra-info p {
             padding: 0.5rem 0;
-            border-bottom: 1px dashed #eee;
+            border-bottom: 1px dashed #333;
+            color: var(--text);
         }
         
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
+            background: var(--dark-section);
+            color: var(--text);
             text-align: center;
             padding: 1.5rem;
             margin-top: 3rem;
+            border-top: 1px solid var(--secondary);
         }
-        
-        footer a {
+        footer .social-icons {
+            display: inline-flex;
+            gap: 10px; /* <-- equal spacing between icons */
+            margin-left: 10px;
+        }
+        footer .social-icons a {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        footer .social-icons a:hover {
             color: var(--secondary);
+        }
+        footer a {
+            color: var(--accent);
             text-decoration: none;
             transition: var(--transition);
         }
         
         footer a:hover {
-            color: white;
+            color: var(--secondary);
             text-decoration: underline;
         }
         
@@ -250,13 +307,13 @@
             font-weight: 600;
             margin-top: 1rem;
             transition: var(--transition);
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
         }
         
         .download-btn:hover {
-            background: var(--primary);
+            background: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(44, 62, 80, 0.3);
+            box-shadow: 0 6px 15px rgba(147, 112, 219, 0.4);
         }
         
         .download-btn i {
@@ -273,14 +330,18 @@
                 font-size: 1rem;
             }
             
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+            .dropdown {
+                left: 10px;
+                top: 10px;
             }
             
-            nav ul li {
-                width: 100%;
-                text-align: center;
+            .dropdown-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .dropdown-content {
+                min-width: 200px;
             }
             
             section {
@@ -297,7 +358,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;

@@ -4,71 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willem Paton - Professional CV</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Modern CSS Reset and Variables */
-        
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Dropdown Navigation -->
+    <div class="dropdown">
+        <button class="dropdown-btn">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+        <div class="dropdown-content">
+            <a href="#objective" target="_self"><i class="fas fa-user"></i> Objective</a>
+            <a href="experience.html" target="_self"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="education.html" target="_self"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="comunication.html" target="_self"><i class="fas fa-comments"></i> Communication</a>
+            <a href="contact.html" target="_self"><i class="fas fa-address-card"></i> Contact</a>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <h1>Willem Paton</h1>
-            <p>Software Developer (Intern) | Bilingual: English, Afrikaans</p>
+            <p>Junior Software Developer</p>
         </header>
-        
-        <nav>
-            <ul>
-                <li><a href="#objective"><i class="fas fa-user"></i> Objective</a></li>
-                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="#communication"><i class="fas fa-comments"></i> Communication</a></li>
-                <li><a href="#contact"><i class="fas fa-address-card"></i> Contact</a></li>
-            </ul>
-        </nav>
         
         <section id="objective" class="objective">
             <h2><i class="fas fa-target"></i> Objective</h2>
-            <p></p>
+            <p>Junior Backend Developer focused on .NET, API's and cloud deployment.</p>
+            <p>Aspiring to grow my skills in a professional environment while contributing effectively to team goals.</p>
+            <p>Seeking a role that offers both challenges and opportunities for continuous learning.</p>
         </section>
-        
-        <section id="experience" class="experience">
-            <h2><i class="fas fa-briefcase"></i> Experience</h2>
-            <p><strong>Jan – Aug 2025 | Tubecon Africa</strong></p>
-            <p>Intern Software Developer</p>
-            <ul>
-                <li>Gained experience with Laravel, Lua, and Java.</li>
-                <li>Assisted coworkers with IT problems on-site.</li>
-                <li>Completed software projects that provided value to the company.</li>
-                <li>Supported employees with technical issues (drivers, network, power).</li>
-            </ul>
-        </section>
-        
-        <section id="education" class="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <p><strong>Afrikaans Hoër Seunskool</strong> – Qualified for Bachelor’s degree (Average: 63%)</p>
-            <p><strong>Belgium Campus</strong> – Currently in 3rd year, preparing for internship year.</p>
-            <p>Worked full-time during studies, demonstrating ability to perform under pressure.</p>
-        </section>
-        
-        <section id="communication" class="communication">
-            <h2><i class="fas fa-comments"></i> Communication</h2>
-            <p>Experienced in team collaboration, idea-sharing, and technical support (IP setups, troubleshooting PCs).</p>
-        </section>
-        
-        <section id="contact" class="contact">
-            <h2><i class="fas fa-address-card"></i> Contact</h2>
-            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> 071 868 1628</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:willempatonps4@gmail.com">willempatonps4@gmail.com</a></p>
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 41 Villa Street, Sunnyside, Clydesdale, Pretoria</p>
-        </section>
-        
+
         <section class="extra-info">
             <div>
                 <h2><i class="fas fa-info-circle"></i> Extra Info</h2>
                 <p><strong>Driver's License:</strong> Yes</p>
                 <p><strong>Car:</strong> Suzuki Swift</p>
+                <p><strong>Bilingual:</strong> English, Afrikaans</p>
             </div>
             <div>
                 <h2><i class="fas fa-download"></i> Download CV</h2>
@@ -77,24 +49,60 @@
         </section>
         
         <footer>
-            <p>© 2025 Willem Paton | <a href="mailto:willempatonps4@gmail.com">willempatonps4@gmail.com</a></p>
+            <p>
+                © <span id="year"></span> Willem Paton | 
+                <span class="social-icons">
+                    <a href="mailto:willempatonps4@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Vastorra" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jean-paton-008151262/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </span>
+            </p>
         </footer>
     </div>
 
     <script>
         // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('.dropdown-content a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 20,
-                    behavior: 'smooth'
-                });
+                const href = this.getAttribute('href');
+
+                // Only prevent default for in-page links (those starting with "#")
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Close dropdown after selection (on mobile)
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.dropdown-content').style.display = 'none';
+                    }
+                }
+                // else: let the browser navigate normally for .html links
             });
+        });
+        
+        // Toggle dropdown on button click (for mobile)
+        document.querySelector('.dropdown-btn').addEventListener('click', function() {
+            const dropdownContent = document.querySelector('.dropdown-content');
+            if (dropdownContent.style.display === 'block') {
+                dropdownContent.style.display = 'none';
+            } else {
+                dropdownContent.style.display = 'block';
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            if (!dropdown.contains(event.target)) {
+                document.querySelector('.dropdown-content').style.display = 'none';
+            }
         });
         
         // Add subtle animation to sections when they come into view
