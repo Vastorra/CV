@@ -16,12 +16,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;   /* makes it a circle */
+            object-fit: cover;    /* crops nicely */
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            margin-bottom: 1rem;
+            }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: var(--dark-bg);
+            background: linear-gradient(120deg, #351545 0%, #000000 100%);
             min-height: 100vh;
         }
         
@@ -213,11 +221,10 @@
         
         /* Communication Section */
         .communication p {
-            background: rgba(138, 43, 226, 0.1);
-            padding: 1rem;
-            border-left: 4px solid var(--secondary);
-            border-radius: 0 4px 4px 0;
-            color: var(--text);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
         }
         
         /* Contact Section */
