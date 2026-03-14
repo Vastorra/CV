@@ -28,9 +28,12 @@ body {
     color: var(--text-color);
 }
 
-html ::-webkit-scrollbar { width: 0.8rem; }
-html ::-webkit-scrollbar-track { background: var(--bg-color); }
-html ::-webkit-scrollbar-thumb { background: var(--main-color); }
+html ::-webkit-scrollbar {
+     width: 0.8rem; }
+html ::-webkit-scrollbar-track { 
+    background: var(--bg-color); }
+html ::-webkit-scrollbar-thumb {
+    background: var(--main-color); }
 
 .header {
     position: fixed;
@@ -183,8 +186,10 @@ span { color: var(--main-color); }
     box-shadow: 0 0 25px var(--main-color);
 }
 
-.typing-text { font-size: 34px; font-weight: 600; min-width: 280px; }
-.typing-text span { position: relative; }
+.typing-text { 
+    font-size: 34px; font-weight: 600; min-width: 280px; }
+.typing-text span { 
+    position: relative; }
 .typing-text span::before {
     content: 'Web Developer';
     color: var(--main-color);
@@ -219,7 +224,7 @@ span { color: var(--main-color); }
     .home { flex-direction: column; margin: 5rem 4rem; }
     .home .home-content h3 { font-size: 2.5rem; }
     .home-content h1 { font-size: 5rem; }
-    .home-img img { width: 70vw; margin-top: 4rem; }
+    .home-img img { width: 70vw; margin-top: 4rem; margin-left: 0; }
 }
 
 /* ── Services ── */
@@ -490,7 +495,7 @@ span { color: var(--main-color); }
     padding: 1.5rem;
     font-size: 1.6rem;
     color: var(--text-color);
-    background: var(#0d0d0d);
+    background: #0d0d0d;
     border-radius: 0.8rem;
     border: 2px solid var(--main-color);
 }
@@ -499,7 +504,7 @@ span { color: var(--main-color); }
     padding: 1.5rem;
     font-size: 1.6rem;
     color: var(--text-color);
-    background: var(#0d0d0d);
+    background: #0d0d0d;
     border-radius: 0.8rem;
     border: 2px solid var(--main-color);
     margin: 1.5rem 0;
@@ -616,4 +621,121 @@ span { color: var(--main-color); }
         flex-direction: column;
         gap: 2rem;
     }
+}
+
+/* ── Footer ── */
+
+.footer {
+    background: #0d0d0d;
+    position: relative;
+    bottom: 0%;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.footer .social {
+    text-align: center;
+    padding-bottom: 25px;
+    color: var(--text-color);
+}
+.footer .social a {
+    font-size: 25px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease;
+}
+.footer .social a:hover {
+    transform: scale(1.2) translateY(-5px);
+    background: var(--main-color);
+    color: white;
+}
+.footer ul {
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li a {
+    color: var(--text-color);
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+.footer ul li a:hover {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+.footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer .copyright {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+@media (max-width: 1285px) {
+    html {
+        font-size: 55%;
+    }
+    .services-container {
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0 5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 3%;
+    }
+    section {
+        padding: 10rem 3% 2rem;
+    }
+     .services {
+        padding-bottom: 7rem;
+     }
+     .footer {
+        padding:  2rem 3%;
+     }
+     @media (max-width:895) {
+        .services h2 {
+            margin-bottom: 3rem;
+        }
+        .services-container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+     }
+}
+/* ── Thank You Popup ── */
+#thank-you-popup {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    background: var(--main-color);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: 0.4s ease;
+    z-index: 9999;
+    pointer-events: none;
+}
+#thank-you-popup.show {
+    opacity: 1;
+    transform: translateY(0);
 }
