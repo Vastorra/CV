@@ -56,3 +56,29 @@ function showPopup() {
         popup.classList.remove('show');
     }, 4000);
 }
+
+// Back to top button
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+// Scroll reveal
+const revealSections = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+revealSections.forEach(section => {
+    revealObserver.observe(section);
+});

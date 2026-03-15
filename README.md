@@ -1,6 +1,6 @@
 # Willem Jean Paton — Personal Portfolio
 
-> A fully responsive personal portfolio website built with pure HTML, CSS and JavaScript.
+> A fully responsive personal portfolio website built with pure HTML, CSS and JavaScript. Designed to showcase my skills, experience and background as a Full Stack Developer.
 
 ---
 
@@ -10,10 +10,10 @@
 |--------|-------------|
 | Home | Introduction with animated typing effect and CV download |
 | Services | Overview of professional services offered |
-| Skills | Technical skills grouped by category with icons |
-| Education | Academic background in a timeline layout |
-| Experience | Work experience displayed as cards |
-| Contact | Contact form with custom popup, powered by Formspree |
+| Skills | Technical skills grouped by category with devicons |
+| Education | Academic background displayed as styled cards |
+| Experience | Work experience with role, company and tech stack tags |
+| Contact | Contact form with custom thank you popup via Formspree |
 
 ---
 
@@ -22,9 +22,9 @@
 | Technology | Purpose |
 |-----------|---------|
 | HTML5 & CSS3 | Structure and styling |
-| JavaScript | Interactivity and animations |
-| Font Awesome | UI icons |
-| Devicon | Tech stack icons |
+| JavaScript | Interactivity, animations and form handling |
+| Font Awesome 6.5.1 | UI and section icons |
+| Devicon | Programming language and tech stack icons |
 | Google Fonts (Poppins) | Typography |
 | Formspree | Contact form email delivery |
 
@@ -32,13 +32,15 @@
 
 ## Features
 
-- Fully responsive — mobile, tablet and desktop
-- Typing animation cycling through roles
-- Smooth scroll with active nav link highlighting
-- Hamburger menu on mobile
+- Fully responsive across mobile, tablet and desktop
+- Animated typing effect cycling through developer roles
+- Scroll reveal animations on all sections
+- Smooth scroll navigation with active link highlighting
+- Hamburger menu for mobile with close animation
+- Back to top button that appears on scroll
 - Downloadable CV button
-- Contact form with custom thank you popup
-- Dark theme throughout
+- Contact form with custom popup notification
+- Alternating dark theme sections for visual rhythm
 
 ---
 
@@ -48,9 +50,29 @@
 git clone https://github.com/Vastorra/portfolio.git
 ```
 
-Then open `index.html` in your browser or use **Live Server** in VS Code.
+Open `index.html` in your browser or use **Live Server** in VS Code.
 
-> No installs, no build tools — runs straight in the browser.
+> No installs, no build tools — runs entirely in the browser.
+
+---
+
+## Project Structure
+
+```
+portfolio/
+├── index.html
+├── README.md
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── script.js
+    ├── image/
+    │   ├── img1.jpg
+    │   └── skills/
+    └── cv/
+        └── cv.pdf
+```
 
 ---
 
